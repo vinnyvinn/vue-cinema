@@ -16,6 +16,10 @@ Object.defineProperty(Vue.prototype,'$bus',{get() {
     return this.$root.bus;
     }});
 
+import tooltip from "./util/tooltip";
+
+Vue.use(tooltip);
+
 import { checkFilter,setDay } from './util/bus';
 import routes from './util/routes';
 import VueRouter from 'vue-router';
@@ -44,10 +48,7 @@ new Vue({
          this.$bus.$on('check-filter',checkFilter.bind(this))
          this.$bus.$on('set-day',setDay.bind(this));
     }
-})
+});
 
-Vue.directive('tooltip',{
-    bind(el,bindings){
-        console.log(el);
-    }
-})
+
+
